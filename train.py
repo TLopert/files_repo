@@ -30,14 +30,14 @@ print()
 
 # Load Dataset
 train_data = object_detector.DataLoader.from_pascal_voc(
-    'perfeqt/train',
-    'perfeqt/train',
+    'train',
+    'train',
     ['perfeqt']
 )
 
 val_data = object_detector.DataLoader.from_pascal_voc(
-    'perfeqt/validate',
-    'perfeqt/validate',
+    'validate',
+    'validate',
     ['perfeqt']
 )
 
