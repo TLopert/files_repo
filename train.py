@@ -42,11 +42,7 @@ val_data = object_detector.DataLoader.from_pascal_voc(
 )
 
 # Load model spec
-spec = object_detector.EfficientDetSpec(
-  model_name='efficientdet-lite0',
-  uri='https://tfhub.dev/tensorflow/efficientdet/lite0/detection/1',
-  model_dir='/content/checkpoints',
-  hparams={'max_instances_per_image': 8000})
+spec = model_spec.get('efficientdet_lite0')
 
 # Train the model
 model = object_detector.create(train_data, model_spec=spec, batch_size=8, train_whole_model=True, epochs=5, validation_data=val_data)
@@ -63,7 +59,7 @@ for label, metric_value in eval_result.items():
 print()
 
 # Export the model
-model.export(export_dir='.', tflite_filename='android.tflite')
+model.export(export_dir='.')
 
 # Evaluate the tflite model
 tflite_eval_result = model.evaluate_tflite('android.tflite', val_data)
