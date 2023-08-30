@@ -39,7 +39,7 @@ print()
 #    'validate',
 #    'validate',
 #    ['perfeqt']
-)
+#)
 
 # Load model spec
 spec = model_spec.get('efficientdet_lite0')
@@ -48,8 +48,6 @@ train_data, validation_data, test_data = object_detector.DataLoader.from_csv('gs
 
 # Train the model
 model = object_detector.create(train_data, model_spec=spec, batch_size=8, train_whole_model=True, epochs=5, validation_data=val_data)
-
-
 
 # Evaluate the model
 eval_result = model.evaluate(val_data)
